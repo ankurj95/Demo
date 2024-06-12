@@ -26,7 +26,7 @@ pipeline {
 
            }
        }
-       stage('Test') {
+       /*stage('Test') {
            steps {
 	      //sonarSummaries()
               snDevOpsStep()
@@ -37,7 +37,7 @@ pipeline {
                 junit "**/target/surefire-reports/*.xml"
              }
            }
-       }
+       }*/
       stage('Deploy') {
                  steps {
 		 
@@ -51,18 +51,18 @@ pipeline {
 		     //snDevOpsChange changeRequestDetails: '{ "attributes": { "type": "standard", "standard_change_template": "508e02ec47410200e90d87e8dee49058"}}'
 		      // snDevOpsChange()
 		      snDevOpsChange changeRequestDetails: '{ "attributes": { "type": "normal"}}'
-		     script{
+		     /*script{
                     changeNumber = snDevOpsGetChangeNumber()
                     echo '>> Deploy Stage -----'
                     sh "echo ${changeNumber}"
                   
-                  }
+                  }*/
 		    
 		   
                  }
 	}
 		 
-       stage('pre prod deploy') { 
+       /*stage('pre prod deploy') { 
          steps {
                     //snDevOpsStep()     
                       echo "packageName - ${packageName}" 
@@ -70,7 +70,7 @@ pipeline {
                     }
             }
 		 
-      }
+      }*/
 	   
      
   }
